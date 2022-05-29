@@ -208,7 +208,6 @@ template {
   -webkit-box-orient: vertical;
 }
 .fontawesomeIcon,
-hr:before,
 #post .post-copyright:before,
 #post .post-outdate-notice:before,
 .note:not(.no-icon)::before {
@@ -1325,7 +1324,7 @@ canvas:not(#ribbon-canvas),
   }
 }
 :root {
-  --global-font-size: 14px;
+  --global-font-size: 16px;
   --global-bg: #fff;
   --font-color: #4c4948;
   --hr-border: #d2ebfd;
@@ -1366,7 +1365,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -1416,25 +1415,6 @@ hr {
   position: relative;
   margin: 40px auto;
   border: 2px dashed var(--hr-border);
-  width: calc(100% - 4px);
-}
-hr:hover:before {
-  left: calc(95% - 20px);
-}
-hr:before {
-  position: absolute;
-  top: -10px;
-  left: 5%;
-  z-index: 1;
-  color: var(--hr-before-color);
-  content: '\f0c4';
-  font-size: 20px;
-  line-height: 1;
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
 }
 .table-wrap {
   overflow-x: scroll;
@@ -1658,8 +1638,8 @@ figure.highlight pre .javascript .function {
 }
 #article-container pre,
 #article-container code {
-  font-size: var(--global-font-size);
-  font-family: consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
+  font-size: 16px;
+  font-family: consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif !important;
 }
 #article-container code {
   padding: 2px 4px;
@@ -1686,7 +1666,7 @@ figure.highlight pre .javascript .function {
 #article-container figure.highlight figcaption,
 #article-container figure.highlight .caption {
   padding: 6px 0 2px 14px;
-  font-size: var(--global-font-size);
+  font-size: 16px;
   line-height: 1em;
 }
 #article-container figure.highlight figcaption a,
@@ -1718,7 +1698,7 @@ figure.highlight pre .javascript .function {
   height: 2.15em;
   background: var(--hltools-bg);
   color: var(--hltools-color);
-  font-size: var(--global-font-size);
+  font-size: 16px;
 }
 #article-container .highlight-tools.closed ~ * {
   display: none;
