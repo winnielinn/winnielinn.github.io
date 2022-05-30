@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>關聯式資料庫 vs 非關聯式資料庫 | I'm Winnie</title><meta name="keywords" content="後端,全端,網頁,技術,網頁開發,後端開發,JavaScript"><meta name="author" content="Winnie Lin"><meta name="copyright" content="Winnie Lin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文將以資料庫系統的兩大分類切入，簡單介紹關聯式資料庫 (RDBMS) 和非關聯式資料庫 (NoSQL) 的區別差異，以及使用時機。 關聯式資料庫 RDBMSRelational Database Management System 又稱關聯式資料庫系統 (RDBMS)，主要有以下幾個特點：  資料是以資料表 (table) 的方式存放，每一列 (row) 都代表一筆資料，而每一欄 (column">
+<meta property="og:type" content="article">
+<meta property="og:title" content="關聯式資料庫 vs 非關聯式資料庫">
+<meta property="og:url" content="https://winnielinn.github.io/2022/04/30/RDBMS-NoSQL/index.html">
+<meta property="og:site_name" content="I&#39;m Winnie">
+<meta property="og:description" content="本文將以資料庫系統的兩大分類切入，簡單介紹關聯式資料庫 (RDBMS) 和非關聯式資料庫 (NoSQL) 的區別差異，以及使用時機。 關聯式資料庫 RDBMSRelational Database Management System 又稱關聯式資料庫系統 (RDBMS)，主要有以下幾個特點：  資料是以資料表 (table) 的方式存放，每一列 (row) 都代表一筆資料，而每一欄 (column">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/686123/retina_800x320_0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Newsletter-f90d29e5d2384eab9f4f76a0a18fa9a8.png">
+<meta property="article:published_time" content="2022-04-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-30T07:59:51.006Z">
+<meta property="article:author" content="Winnie Lin">
+<meta property="article:tag" content="後端,全端,網頁,技術,網頁開發,後端開發,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/686123/retina_800x320_0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Newsletter-f90d29e5d2384eab9f4f76a0a18fa9a8.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://winnielinn.github.io/2022/04/30/RDBMS-NoSQL/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '關聯式資料庫 vs 非關聯式資料庫',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2022-05-30 15:59:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://assets-lighthouse.alphacamp.co/uploads/user/photo/7187/medium_4510F599-9901-4A99-9D23-3D233EC57C8E.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> About Me</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fa fa-user"></i><span> Resume</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> Profolio</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/686123/retina_800x320_0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Newsletter-f90d29e5d2384eab9f4f76a0a18fa9a8.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">I'm Winnie</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> About Me</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fa fa-user"></i><span> Resume</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> Profolio</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">關聯式資料庫 vs 非關聯式資料庫</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-04-29T16:00:00.000Z" title="Created 2022-04-30 00:00:00">2022-04-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-30T07:59:51.006Z" title="Updated 2022-05-30 15:59:51">2022-05-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/DataBase/">DataBase</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">935</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>2min</span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">Comments:</span><a href="/2022/04/30/RDBMS-NoSQL/#post-comment"><span class="gitalk-comment-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><em>本文將以資料庫系統的兩大分類切入，簡單介紹關聯式資料庫 (RDBMS) 和非關聯式資料庫 (NoSQL) 的區別差異，以及使用時機。</em></p>
+<h2 id="關聯式資料庫-RDBMS"><a href="#關聯式資料庫-RDBMS" class="headerlink" title="關聯式資料庫 RDBMS"></a>關聯式資料庫 RDBMS</h2><p>Relational Database Management System 又稱關聯式資料庫系統 (RDBMS)，主要有以下幾個特點：</p>
+<ul>
+<li>資料是以資料表 (table) 的方式存放，每一列 (row) 都代表一筆資料，而每一欄 (column) 則被稱為資料欄位 (field)，代表意義為屬性 (attribute)。</li>
+</ul>
+<p><img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/6770/ExportedContentImage_04.png" alt="From ALPHA camp"></p>
+<ul>
+<li>一般都用來儲存結構化的資料，資料之間有明確的關聯。</li>
+<li>以 SQL (Structured Query Language 結構化查詢語言) 操作。</li>
+<li>每個資料表一定要有一個主鍵 (primary key) 的欄位，而多個資料表之間可使用外鍵 (foreign key) 建立關聯。</li>
+<li>可以使用 JOIN 合併資料表，搭配<a target="_blank" rel="noopener" href="https://jamie-life-coding.site/2021/09/database-normalization-pros-cons/">正規化和反正規化</a>。</li>
+<li>遵循 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/ACID">ACID 原則</a>，來保證交易一致性 (Transaction)。</li>
+</ul>
+<img src="/2022/04/30/RDBMS-NoSQL/ERD.png" class title="ERD">
+
+<h2 id="非關聯式資料庫-NoSQL"><a href="#非關聯式資料庫-NoSQL" class="headerlink" title="非關聯式資料庫 NoSQL"></a>非關聯式資料庫 NoSQL</h2><p>NoSQL 的意思為 Not Only SQL，不限定為關聯式資料庫的統稱，主要有以下特性：</p>
+<ul>
+<li>每筆資料為一份文件(document)，這些文件會組成集合 (collection)，通常將資料儲存為 JSON 文件。</li>
+</ul>
+<p><img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/11255/ExportedContentImage_01.png" alt="From ALPHA camp"></p>
+<ul>
+<li>通常不使用關聯模型，也並不需要固定的結構 (schema-free)。但有需要時， NoSQL 也可以使用關聯模型與 schema。</li>
+<li>放寬關聯式資料庫的一些資料的一致性限制。</li>
+<li>資料物件由 key-value pair (屬性-值) (attribute-value pair) 或陣列組成。</li>
+</ul>
+<p><img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/20537/ExportedContentImage_02.png" alt="From ALPHA camp"></p>
+<h2 id="何時使用-RDBMS-何時使用-NoSQL"><a href="#何時使用-RDBMS-何時使用-NoSQL" class="headerlink" title="何時使用 RDBMS? 何時使用 NoSQL?"></a>何時使用 RDBMS? 何時使用 NoSQL?</h2><p>沒有說一定要使用關聯式資料庫或是非關聯式資料庫，端看當時的使用情境與需求，分析兩個資料庫的特性，去選擇最適合的資料庫。</p>
+<h3 id="使用-RDBMS"><a href="#使用-RDBMS" class="headerlink" title="使用 RDBMS"></a>使用 RDBMS</h3><ul>
+<li>資料格式應用上變動幅度小且有明確的資料格式。</li>
+<li>資料要求準確性高不能出錯，且需要確保符合 ACID 特性的情境，像是銀行轉帳、金融交易等。</li>
+</ul>
+<p>舉例來說，如果今天你會出一筆款項給店家，那麼當款項從你的帳戶，系統一定要同步「帳戶已經扣除這筆款項」這個訊息。</p>
+<p>否則轉出的款項，可能會被重複扣除，或者其他系統會誤以為我們帳戶的結餘跟匯款前一樣。</p>
+<h3 id="使用-NoSQL"><a href="#使用-NoSQL" class="headerlink" title="使用 NoSQL"></a>使用 NoSQL</h3><ul>
+<li>開發初期而且需求變化很快，Database Schema 常常需要修改，不太好預先定義。</li>
+<li>對於簡單的查詢需要快速的回應。</li>
+<li>不講求資料同步，只求最後結果一致。</li>
+</ul>
+<p>舉例來說，像是在 Facebook 上的貼文的按讚數，這個數字的準確性就不是非常重要。</p>
+<p>當這篇貼文獲得第 100 個按讚時，某些使用者可能會看到最新的數字，但部分使用者可能需要間隔幾十秒後才能看到按讚數的變更。</p>
+<p>這些訊息的延誤，將不會造成太�
