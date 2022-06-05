@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>第一次架設個人部落格就上手 (Hexo + GitHub Pages) | I'm Winnie</title><meta name="keywords" content="後端,全端,網頁,技術,網頁開發,後端開發,JavaScript"><meta name="author" content="Winnie Lin"><meta name="copyright" content="Winnie Lin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="原先於 medium 內分享的文章，因為無法使用 Markdonw 語法，以及程式碼標示不清，再加上文章無法保有在自己手上的種種因素，讓我興起了架設屬於一個自己部落格的念頭。  關於 Hexo 的那些事什麼是 Hexo ？Hexo 是一個基於 Node.js 開發的網誌框架，具有下列優點：  編譯速度快。  支援 Markdown 語法撰寫。  一鍵部署至 GitHub Pages, Heroku">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一次架設個人部落格就上手 (Hexo + GitHub Pages)">
+<meta property="og:url" content="https://winnielinn.github.io/2022/06/03/hexo-blog/index.html">
+<meta property="og:site_name" content="I&#39;m Winnie">
+<meta property="og:description" content="原先於 medium 內分享的文章，因為無法使用 Markdonw 語法，以及程式碼標示不清，再加上文章無法保有在自己手上的種種因素，讓我興起了架設屬於一個自己部落格的念頭。  關於 Hexo 的那些事什麼是 Hexo ？Hexo 是一個基於 Node.js 開發的網誌框架，具有下列優點：  編譯速度快。  支援 Markdown 語法撰寫。  一鍵部署至 GitHub Pages, Heroku">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://augustushsu.github.io/uploads/hexo-cover.png">
+<meta property="article:published_time" content="2022-06-03T15:22:21.000Z">
+<meta property="article:modified_time" content="2022-06-05T13:38:32.748Z">
+<meta property="article:author" content="Winnie Lin">
+<meta property="article:tag" content="後端,全端,網頁,技術,網頁開發,後端開發,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://augustushsu.github.io/uploads/hexo-cover.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://winnielinn.github.io/2022/06/03/hexo-blog/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '第一次架設個人部落格就上手 (Hexo + GitHub Pages)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-05 21:38:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://assets-lighthouse.alphacamp.co/uploads/user/photo/7187/medium_4510F599-9901-4A99-9D23-3D233EC57C8E.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://augustushsu.github.io/uploads/hexo-cover.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">I'm Winnie</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第一次架設個人部落格就上手 (Hexo + GitHub Pages)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-03T15:22:21.000Z" title="Created 2022-06-03 23:22:21">2022-06-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-05T13:38:32.748Z" title="Updated 2022-06-05 21:38:32">2022-06-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hexo/">Hexo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">Comments:</span><a href="/2022/06/03/hexo-blog/#post-comment"><span class="gitalk-comment-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><em>原先於 medium 內分享的文章，因為無法使用 Markdonw 語法，以及程式碼標示不清，再加上文章無法保有在自己手上的種種因素，讓我興起了架設屬於一個自己部落格的念頭。</em></p>
+<p><img src="https://images.unsplash.com/photo-1546074177-ffdda98d214f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="blog post"></p>
+<h2 id="關於-Hexo-的那些事"><a href="#關於-Hexo-的那些事" class="headerlink" title="關於 Hexo 的那些事"></a>關於 Hexo 的那些事</h2><h3 id="什麼是-Hexo-？"><a href="#什麼是-Hexo-？" class="headerlink" title="什麼是 Hexo ？"></a>什麼是 Hexo ？</h3><p>Hexo 是一個基於 Node.js 開發的網誌框架，具有下列優點：</p>
+<ul>
+<li><p>編譯速度快。</p>
+</li>
+<li><p>支援 Markdown 語法撰寫。</p>
+</li>
+<li><p>一鍵部署至 GitHub Pages, Heroku 等其他支援靜態網頁的空間。</p>
+</li>
+<li><p>豐富的外掛套件。</p>
+</li>
+</ul>
+<blockquote><p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
+<footer><strong>yoshinorin</strong><cite><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo#hexo.html">hexo</a></cite></footer></blockquote>
+
+<h3 id="為什麼選擇-Hexo-？"><a href="#為什麼選擇-Hexo-？" class="headerlink" title="為什麼選擇 Hexo ？"></a>為什麼選擇 Hexo ？</h3><p>評估自己的需求，以及綜合上述所說的 Hexo 的優點，列出以下選擇 Hexo 的原因：</p>
+<ul>
+<li><p>支援 Markdown 語法，能夠強迫自己以不太熟悉的 Markdown 語法撰寫文章。</p>
+</li>
+<li><p>支援程式碼語法，可以不再以 GitHub Gist 方式嵌入程式碼。</p>
+</li>
+<li><p>文章內的目錄能優化使用者閱讀的體驗，且有多種主題可以選擇，並可以客製化需求。</p>
+</li>
+<li><p>間單易懂且快速的架設方式。</p>
+</li>
+</ul>
+<h2 id="架設過程"><a href="#架設過程" class="headerlink" title="架設過程"></a>架設過程</h2><h3 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h3><p>在正式安裝 Hexo 之前，要先確保電腦內已經安裝以下軟體。</p>
+<h4 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h4><p>Hexo 基於 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 製作，需要 Node.js 的開發環境。</p>
+<img src="/2022/06/03/hexo-blog/nodejs.png" class title="nodejs">
+
+<p>使用 <code>$ node -v</code> 可以查看目前的版本，我這邊使用的是 <code>v14.16.0</code> 版本。</p>
+<h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><p>需要使用到 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a> 來將檔案發佈到 GitHub Pages。</p>
+<img src="/2022/06/03/hexo-blog/git.png" class title="git">
+
+<h3 id="Hexo-專案"><a href="#Hexo-專案" class="headerlink" title="Hexo 專案"></a>Hexo 專案</h3><p>確認前置作業都完成以後，就可以正式來安裝 Hexo 啦！</p>
+<h4 id="安裝-Hexo"><a href="#安裝-Hexo" class="headerlink" title="安裝 Hexo"></a>安裝 Hexo</h4><p>根據<a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/">官方文件</a>，在終端機透過 npm 即可完成 Hexo 的安裝。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>安裝完成後，可以透過 <code>hexo -v</code> 查看 Hexo 版本，並確認是否安裝成功。</p>
+<h4 id="建立-Hexo-專案"><a href="#建立-Hexo-專案" class="headerlink" title="建立 Hexo 專案"></a>建立 Hexo 專案</h4><p>一旦 Hexo 安裝完成後，需要初始化 Hexo 並生成一個 Hexo 專案。</p>
+<ul>
+<li>切換到你想建立 Hexo 專案的路徑下。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ cd ~</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>初始化 Hexo 並產生一個名叫<code>blog</code>的資料夾。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>切換到產生的 Hexo 專案資料夾。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ cd blog</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安裝 Hexo 所需要的套件。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<h4 id="Hexo-目錄結構"><a href="#Hexo-目錄結構" class="headerlink" title="Hexo 目錄結構"></a>Hexo 目錄結構</h4><p>接下來讓我們來介紹一下剛剛建立的 Hexo 專案，在安裝完所需的 npm 套件之後，檔案和資料夾呈現的樣子。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── .github</span><br><span class="line">├── node_modules</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">├── themes</span><br><span class="line">├── _config.landscape.yml</span><br><span class="line">├── _config.yml</span><br><span class="line">├── .gitgnore</span><br><span class="line">├── db.json</span><br><span class="line">├── package-lock.json</span><br><span class="line">└── package.json</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>.github 與部署相關。</p>
+</li>
+<li><p>node_modules 存放所有安裝的套件。</p>
+</li>
+<li><p>scaffolds 會根據這裡的三個檔案<code>draft.md</code>、<code>post.md</code>、<code>post.md</code> 初始化一篇文章。</p>
+</li>
+<li><p>source 是存放原始檔案的地方。舉凡 Markdown 和 HTML 檔案都是放在這裡，可以使用 <code>_</code> (下底線) 來隱藏資料夾和檔案，避免他們被 Hexo 編譯或是被 copy 到 public 資料夾。 <em>( <code>_post</code> 不受影響)</em></p>
+</li>
+<li><p>themes 是放置 Hexo 主題的資料夾。預設官方就有提供一個主題  <code>landscape</code>，也就是根目錄內的 <code>_config.landscape.yml</code>。</p>
+</li>
+<li><p>_config.yml 是 Hexo 的主要網站<a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/configuration">設定檔</a>。通常 Hexo 本身會有一個 <code>_config.yml</code>，而主題本身也有一個 <code>_config.yml</code> 檔案，兩者是不同的。</p>
+</li>
+<li><p>.gitgnore 是含有那些不會被上傳至 Git 的檔案和資料夾的名稱。</p>
+</li>
+<li><p>db.json 為緩存文件，可以使用 <code>hexo clean</code> 清除。</p>
+</li>
+<li><p>package-lock.json 記錄當前狀態安裝的每一個套件版本。</p>
+</li>
+<li><p>package.json 放置並管理我們透過 npm 下載回來的檔案，也可以將部分指令直接寫在裡面，方便開發。</p>
+</li>
+</ul>
+<h3 id="主題選擇"><a href="#主題選擇" class="headerlink" title="主題選擇"></a>主題選擇</h3><p>Hexo 提供了上百個<a target="_blank" rel="noopener" href="https://hexo.io/themes/">主題</a>可以讓大家挑選，大家可以從中挑選自己喜歡的主題，並且跟著該主題 Github 的 Installation 安裝即可。</p>
+<h2 id="那些想忘也忘不掉的-Hexo-指令"><a href="#那些想忘也忘不掉的-Hexo-指令" class="headerlink" title="那些想忘也忘不掉的 Hexo 指令"></a>那些想忘也忘不掉的 Hexo 指令</h2><p>Hexo 已將所有<a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/commands">指令</a>進行整理，這裡僅列出幾個非常常用的指令，常用到你想忘也忘不掉。</p>
+<h3 id="建立一篇新的文章"><a href="#建立一篇新的文章" class="headerlink" title="建立一篇新的文章"></a>建立一篇新的文章</h3><p>使用 <code>hexo new [layout] &lt;title&gt;</code> 來建立一篇新的文章，若標題包含空格，需要用引號括起來。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;我的第一篇文章 By Hexo&quot;</span><br></pre></td></tr></table></figure>
+
+<p>輸入指令之後，會發現 <code>source</code> 的 <code>_posts</code> 資料夾多了一個 <code>我的第一篇文章-By-Hexo.md</code> 的檔案，接著可以進入該檔案，開始進行文章內容的編輯。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我的第一篇文章 By Hexo</span><br><span class="line">date: 2022-06-05 18:21:16</span><br><span class="line"><span class="section">tags:</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section"># 標題</span></span><br><span class="line"></span><br><span class="line">hi~ 我是 Winnie~ 很高興認識你~</span><br><span class="line"></span><br><span class="line">這裡可以使用 <span class="code">`Markdown`</span> 語法撰寫。</span><br></pre></td></tr></table></figure>
+
+<p>由上下兩個 <code>---</code> 包夾的區塊為 Front-matter，用來敘述文章的屬性，可以參考官方網站的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/front-matter">Front-matter</a> 取得這些設定值，並加以利用。</p>
+<h3 id="啟動伺服器"><a href="#啟動伺服器" class="headerlink" title="啟動伺服器"></a>啟動伺服器</h3><p>透過 <code>hexo server</code> 啟動本地伺服器，輸入指令後，終端機會跳出 <code>Hexo is running at http://localhost:4000/</code>。</p>
+<p>這時在瀏覽器的網址頁輸入<code>http://localhost:4000/</code>，就可以看到 Hexo 成功出現啦！</p>
+<img src="/2022/06/03/hexo-blog/init.png" class title="init">
+
+<h3 id="清除暫存檔案"><a href="#清除暫存檔案" class="headerlink" title="清除暫存檔案"></a>清除暫存檔案</h3><p>有時候可能會遇到一些奇怪的問題，例如完成修改樣式之後，部落格樣式卻沒有跟著改變，或是部署完成之後，輸入網頁卻仍然找不到資料…問題，這時候輸入 <code>hexo clean</code> 就可以解決掉，主要會清除掉快取檔案 (<code>db.json</code>) 以及編譯檔案 (<code>public</code>)。</p>
+<h2 id="部署至-Github-Pages"><a href="#部署至-Github-Pages" class="headerlink" title="部署至 Github Pages"></a>部署至 Github Pages</h2><p>在架設部落格之前，需要準備一個存放網站的空間。</p>
+<p>由於之前的專案多架設在 Heroku 上，這次則選擇將部落格部署至 GitHub Pages 上。</p>
+<h3 id="建立-GitHub-專案"><a href="#建立-GitHub-專案" class="headerlink" title="建立 GitHub 專案"></a>建立 GitHub 專案</h3><p>新增一個公開的 Repsoitory，並且命名為 <code>[你的 GitHub 帳號].github.io</code>。</p>
+<p>以我的部落格為例，respository 的名稱就會是 <code>winnielinn.github.io</code>，並且需要設定為公開。</p>
+<img src="/2022/06/03/hexo-blog/repository.png" class title="repository">
+
+<p>這樣我們就成功建立了一個網域  <code>[你的 GitHub 帳號].github.io</code> 。</p>
+<h3 id="將檔案發佈到-Git"><a href="#將檔案發佈到-Git" class="headerlink" title="將檔案發佈到 Git"></a>將檔案發佈到 Git</h3><h4 id="安裝-Git-相關套件"><a href="#安裝-Git-相關套件" class="headerlink" title="安裝 Git 相關套件"></a>安裝 Git 相關套件</h4><p>部署前需要安裝一個套件，因為預設 Hexo 並沒有安裝。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改-config-yml-設定檔"><a href="#修改-config-yml-設定檔" class="headerlink" title="修改 _config.yml 設定檔"></a>修改 _config.yml 設定檔</h4><p>接著需要修改根目錄下的<a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/one-command-deployment#Git">_config.yml 設定檔</a>，有關 deploy 的設定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/winnielinn/winnielinn.github.io.git </span><br><span class="line">    # https://github.com/[你的 GitHub 帳號]/[你的 GitHub 帳號].github.io.git</span><br><span class="line"></span><br><span class="line">  branch: master # 預設分支名稱</span><br><span class="line">  message:</span><br></pre></td></tr></table></figure>
+
+<p>除了部署設定需要修正之外，還需要同時修改同一份檔案內 URL 的部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line"></span><br><span class="line">url: https://winnielinn.github.io</span><br><span class="line">  # http://yoursite.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="輸入部署指令"><a href="#輸入部署指令" class="headerlink" title="輸入部署指令"></a>輸入部署指令</h4><p>接著輸入 <code>hexo deploy</code> 即可部署檔案到網站上 🚀</p>
+<p>可以回到 Git 的 Repsoitory 內的 Setting 的 Pages 確認是否部署成功。</p>
+<img src="/2022/06/03/hexo-blog/deployment.png" class title="deployment">
+
+<p>如果出現 <strong>Your site is published at <a href="https://winnielinn.github.io/">https://winnielinn.github.io</a></strong>，那就代表部落格上線成功囉！</p>
+<p>如果沒有出現，則需要手動切換 Soucre 到 <code>master</code> 並 <code>save</code> 後，就可以看到 Hexo 的網站順利地架在 Github 的 Page 上囉✌️</p>
+<img src="/2022/06/03/hexo-blog/init.png" class title="init"> 
+
+<h4 id="修改後的部署"><a href="#修改後的部署" class="headerlink" title="修改後的部署"></a>修改後的部署</h4><p>通常在每次完成修改後，會依序輸入 <code>clean</code> -&gt; <code>generate</code> -&gt; <code>deploy</code> 三行指令，避免更新不夠完全：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo cl    // 清除之前建立的靜態檔案</span><br><span class="line">$ hexo g     // 建立靜態頁面</span><br><span class="line">$ hexo d     // 部署至 GitHub</span><br></pre></td></tr></table></figure>
+
+<h2 id="心得紀錄"><a href="#心得紀錄" class="headerlink" title="心得紀錄"></a>心得紀錄</h2><p>實際在使用 Hexo 框架時，能夠快速套用不同的主題和套件，架設的速度比想像中還要快很多。主要還是在如何修改網站樣式來符合自己的需求上，花了比預期還要多的時間。</p>
+<p>目前<a href="https://winnielinn.github.io/">網站</a>還有很多需要調整的，之後會持續摸索不同的功能，也會慢慢豐富部落格內的文章。</p>
+<p>一直以來都想架設一個屬於自己的部落格，想記錄這段時間吸收的知識，畢竟持續的 output 與 input 同等重要，也希望自己整理的技術性文章，能夠幫助到與我同樣在轉職路上前行的人。</p>
+<blockquote>
+<p> 參考資料如下：<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/docs/">Hexo 官方文件</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10236742">試著學 Hexo - 序章</a></p>
+</blockquote>
+<hr>
+</article><div><script type="text/javascript">document.write(
+"<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/ouoholly/button?referrer=" +
+encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");</script></div><div class="tag_share"><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/04/30/RDBMS-NoSQL/"><img class="next-cover" src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/686123/retina_800x320_0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Newsletter-f90d29e5d2384eab9f4f76a0a18fa9a8.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">關聯式資料庫 vs 非關聯式資料庫</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://assets-lighthouse.alphacamp.co/uploads/user/photo/7187/medium_4510F599-9901-4A99-9D23-3D233EC57C8E.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Winnie Lin</div><div class="author-info__description">A junior backend engineer</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div><a id="card-info-btn" href="mailto:yaysa903@gmail.com"><i class="fas fa-envelope"></i><span>Mail to me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/winnielinn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://www.linkedin.com/in/winnie-lin-8a8924228/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a><a class="social-icon" href="https://medium.com/@winnie_lin" target="_blank" title="Medium"><i class="fab fa-medium"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%9C%E6%96%BC-Hexo-%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B"><span class="toc-number">1.</span> <span class="toc-text">關於 Hexo 的那些事</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Hexo-%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什麼是 Hexo ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%E6%93%87-Hexo-%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">為什麼選擇 Hexo ？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E8%A8%AD%E9%81%8E%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">架設過程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E4%BD%9C%E6%A5%AD"><span class="toc-number">2.1.</span> <span class="toc-text">前置作業</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-js"><span class="toc-number">2.1.1.</span> <span class="toc-text">Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git"><span class="toc-number">2.1.2.</span> <span class="toc-text">Git</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-%E5%B0%88%E6%A1%88"><span class="toc-number">2.2.</span> <span class="toc-text">Hexo 專案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-Hexo"><span class="toc-number">2.2.1.</span> <span class="toc-text">安裝 Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-Hexo-%E5%B0%88%E6%A1%88"><span class="toc-number">2.2.2.</span> <span class="toc-text">建立 Hexo 專案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hexo-%E7%9B%AE%E9%8C%84%E7%B5%90%E6%A7%8B"><span class="toc-number">2.2.3.</span> <span class="toc-text">Hexo 目錄結構</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A1%8C%E9%81%B8%E6%93%87"><span class="toc-number">2.3.</span> <span class="toc-text">主題選擇</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E4%BA%9B%E6%83%B3%E5%BF%98%E4%B9%9F%E5%BF%98%E4%B8%8D%E6%8E%89%E7%9A%84-Hexo-%E6%8C%87%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">那些想忘也忘不掉的 Hexo 指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%80%E7%AF%87%E6%96%B0%E7%9A%84%E6%96%87%E7%AB%A0"><span class="toc-number">3.1.</span> <span class="toc-text">建立一篇新的文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%9F%E5%8B%95%E4%BC%BA%E6%9C%8D%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">啟動伺服器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%9A%AB%E5%AD%98%E6%AA%94%E6%A1%88"><span class="toc-number">3.3.</span> <span class="toc-text">清除暫存檔案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E8%87%B3-Github-Pages"><span class="toc-number">4.</span> <span class="toc-text">部署至 Github Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-GitHub-%E5%B0%88%E6%A1%88"><span class="toc-number">4.1.</span> <span class="toc-text">建立 GitHub 專案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%87%E6%AA%94%E6%A1%88%E7%99%BC%E4%BD%88%E5%88%B0-Git"><span class="toc-number">4.2.</span> <span class="toc-text">將檔案發佈到 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-Git-%E7%9B%B8%E9%97%9C%E5%A5%97%E4%BB%B6"><span class="toc-number">4.2.1.</span> <span class="toc-text">安裝 Git 相關套件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-config-yml-%E8%A8%AD%E5%AE%9A%E6%AA%94"><span class="toc-number">4.2.2.</span> <span class="toc-text">修改 _config.yml 設定檔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BC%B8%E5%85%A5%E9%83%A8%E7%BD%B2%E6%8C%87%E4%BB%A4"><span class="toc-number">4.2.3.</span> <span class="toc-text">輸入部署指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%BE%8C%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="toc-number">4.2.4.</span> <span class="toc-text">修改後的部署</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%83%E5%BE%97%E7%B4%80%E9%8C%84"><span class="toc-number">5.</span> <span class="toc-text">心得紀錄</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/03/hexo-blog/" title="第一次架設個人部落格就上手 (Hexo + GitHub Pages)"><img src="https://augustushsu.github.io/uploads/hexo-cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一次架設個人部落格就上手 (Hexo + GitHub Pages)"/></a><div class="content"><a class="title" href="/2022/06/03/hexo-blog/" title="第一次架設個人部落格就上手 (Hexo + GitHub Pages)">第一次架設個人部落格就上手 (Hexo + GitHub Pages)</a><time datetime="2022-06-03T15:22:21.000Z" title="Created 2022-06-03 23:22:21">2022-06-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/30/RDBMS-NoSQL/" title="關聯式資料庫 vs 非關聯式資料庫"><img src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/686123/retina_800x320_0712-Bad_Practices_in_Database_Design_-_Are_You_Making_These_Mistakes_Dan_Newsletter-f90d29e5d2384eab9f4f76a0a18fa9a8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="關聯式資料庫 vs 非關聯式資料庫"/></a><div class="content"><a class="title" href="/2022/04/30/RDBMS-NoSQL/" title="關聯式資料庫 vs 非關聯式資料庫">關聯式資料庫 vs 非關聯式資料庫</a><time datetime="2022-04-29T16:00:00.000Z" title="Created 2022-04-30 00:00:00">2022-04-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/07/expense-tracker/" title="老爸的私房錢 Expense-Tracker"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1770&amp;q=80" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="老爸的私房錢 Expense-Tracker"/></a><div class="content"><a class="title" href="/2022/04/07/expense-tracker/" title="老爸的私房錢 Expense-Tracker">老爸的私房錢 Expense-Tracker</a><time datetime="2022-04-06T16:00:00.000Z" title="Created 2022-04-07 00:00:00">2022-04-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/30/cookie-session/" title="從使用者認證談到 Cookie &amp; Session"><img src="https://images.unsplash.com/photo-1597733153203-a54d0fbc47de?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1690&amp;q=80" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="從使用者認證談到 Cookie &amp; Session"/></a><div class="content"><a class="title" href="/2022/03/30/cookie-session/" title="從使用者認證談到 Cookie &amp; Session">從使用者認證談到 Cookie &amp; Session</a><time datetime="2022-03-29T16:00:00.000Z" title="Created 2022-03-30 00:00:00">2022-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/20/event-loop/" title="所以我說那個 Event Loop 到底是什麼東西"><img src="https://images.unsplash.com/photo-1621317973176-2af7dac76271?crop=entropy&amp;cs=tinysrgb&amp;fm=jpg&amp;ixlib=rb-1.2.1&amp;q=80&amp;raw_url=true&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=928" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="所以我說那個 Event Loop 到底是什麼東西"/></a><div class="content"><a class="title" href="/2022/02/20/event-loop/" title="所以我說那個 Event Loop 到底是什麼東西">所以我說那個 Event Loop 到底是什麼東西</a><time datetime="2022-02-19T16:00:00.000Z" title="Created 2022-02-20 00:00:00">2022-02-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By Winnie Lin</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '56ae54cd890a1ef5093b',
+      clientSecret: '015d34968e3e69c082fd5edce804fb87cb4b940e',
+      repo: 'winnielinn.github.io',
+      owner: 'winnielinn',
+      admin: ['winnielinn'],
+      id: '5584dd47dc3363b52b5a71264f07f7ec',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div></div></body></html>
